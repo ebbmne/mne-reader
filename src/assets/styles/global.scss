@@ -1,0 +1,7 @@
+@import "./reset.scss";
+
+$fontSize: 375 / 10;
+
+@function px2rem($px) {
+  @return ($px / $fontSize) + "rem";
+}
