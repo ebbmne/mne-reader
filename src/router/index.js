@@ -4,6 +4,20 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/",
+    redirect: "/ebook"
+  },
+  {
+    path: "/ebook",
+    component: () => import("@/views/EBook"),
+    children: [
+      {
+        path: ":fileName",
+        component: () => import("@/components/EBook/Reader.vue")
+      }
+    ]
+  }
 ];
 
 const router = new VueRouter({

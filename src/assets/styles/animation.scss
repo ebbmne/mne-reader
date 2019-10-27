@@ -1,0 +1,23 @@
+.slide-top-enter, .slide-top-leave-to {
+  transform: translate(0, px2rem(-40));
+}
+
+.slide-top-enter-to, .slide-top-leave {
+  transform: translate(0, px2rem(0));
+}
+
+.slide-top-enter-active, .slide-top-leave-active {
+  transition: all .3s linear;
+}
+
+.slide-bottom-enter, .slide-bottom-leave-to {
+  transform: translate(0, px2rem(80));
+}
+
+.slide-bottom-enter-to, .slide-bottom-leave {
+  transform: translate(0, px2rem(0));
+}
+
+.slide-bottom-enter-active, .slide-bottom-leave-active {
+  transition: all 0.3s linear;
+}
