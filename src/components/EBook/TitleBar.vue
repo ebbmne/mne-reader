@@ -21,12 +21,12 @@
 
 <script>
 export default {
-}
+};
 </script>
 
 <style lang='scss' scoped>
-@import '@/assets/styles/global.scss';
-@import '@/assets/styles/animation.scss';
+@import "@/assets/styles/global.scss";
+@import "@/assets/styles/animation.scss";
 
 .title-bar {
   position: absolute;
@@ -38,7 +38,7 @@ export default {
   display: flex;
   z-index: 101;
   font-size: px2rem(22);
-  box-shadow: 0 px2rem(4) px2rem(4) rgba(0,0,0,.25);
+  box-shadow: 0 px2rem(4) px2rem(4) rgba(0, 0, 0, 0.25);
   .left {
     flex: 0 0 px2rem(40);
     @include center;

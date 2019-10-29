@@ -1,0 +1,8 @@
+rendition.hooks.content.register(contents => {
+  for (let item of this.fontFamilyCollection) {
+    if (item.src) {
+      const url = this.baseURL + item.src;
+      contents.addStylesheet(url);
+    }
+  }
+});

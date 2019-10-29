@@ -6,14 +6,14 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "/ebook"
+    redirect: "/ebook/:bookName"
   },
   {
     path: "/ebook",
-    component: () => import("@/views/EBook"),
+    component: () => import("@/views/EBook.vue"),
     children: [
       {
-        path: ":fileName",
+        path: ":catagory/:bookName",
         component: () => import("@/components/EBook/Reader.vue")
       }
     ]

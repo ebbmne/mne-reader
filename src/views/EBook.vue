@@ -9,9 +9,8 @@
 <script>
 import TitleBar from "@/components/EBook/TitleBar.vue";
 import Reader from "@/components/EBook/Reader.vue";
-import MenuWrap from "@/components/EBook/MenuWrap.vue";
-
-import { mapState } from "vuex";
+import MenuWrap from "@/components/EBook/Menu/MenuWrap.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -20,9 +19,7 @@ export default {
     MenuWrap
   },
   computed: {
-    ...mapState({
-      showTitleAndMenuWrap: state => state.showTitleAndMenuWrap
-    })
+    ...mapGetters(["showTitleAndMenuWrap"])
   }
 };
 </script>

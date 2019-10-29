@@ -789,13 +789,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/localforage@0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@types/localforage/-/localforage-0.0.34.tgz#5e31c32dd8791ec4b9ff3ef47c9cb55b2d0d9438"
-  integrity sha1-XjHDLdh5HsS5/z70fJy1Wy0NlDg=
-  dependencies:
-    localforage "*"
-
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -3025,21 +3018,18 @@ entities@^2.0.0:
   resolved "https://registry.npm.taobao.org/entities/download/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha1-aNYITKsbB5dnVA2A5Wo5tCPkq/Q=
 
-epubjs@^0.3.85:
-  version "0.3.85"
-  resolved "https://registry.yarnpkg.com/epubjs/-/epubjs-0.3.85.tgz#603bfe1cfe925d9a638c51cd564b40a45e7f82b1"
-  integrity sha512-kRq+yR+M3RyD7NoJovrxUXiXfLXqfDMnrfKGL5HS8vdzPlhajhuDxSrnhFOCYlgxEBpvBkYOxigD1cCu+BziOg==
+epubjs@0.3.73:
+  version "0.3.73"
+  resolved "https://registry.yarnpkg.com/epubjs/-/epubjs-0.3.73.tgz#45f4339802f1b8a8ffc9313efb6180b7c6233cf3"
+  integrity sha512-R5aPazWm1ES2unfb2Rp5fL0GPKPeS2J0mj2ME/sflHpXBeESQ8X53Ze3WWU2NndJu38m/6octC37Luha2j2LFg==
   dependencies:
     "@types/jszip" "^3.1.4"
-    "@types/localforage" "0.0.34"
     event-emitter "^0.3.5"
     jszip "^3.1.5"
-    localforage "^1.7.2"
     lodash "^4.17.10"
     marks-pane "^1.0.9"
     path-webpack "0.0.3"
     stream-browserify "^2.0.1"
-    url-polyfill "^1.1.3"
     xmldom "^0.1.27"
 
 errno@^0.1.3, errno@~0.1.7:
@@ -4874,13 +4864,6 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lie@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/lie/-/lie-3.1.1.tgz#9a436b2cc7746ca59de7a41fa469b3efb76bd87e"
-  integrity sha1-mkNrLMd0bKWd56QfpGmz77dr2H4=
-  dependencies:
-    immediate "~3.0.5"
-
 lie@~3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/lie/-/lie-3.3.0.tgz#dcf82dee545f46074daf200c7c1c5a08e0f40f6a"
@@ -4924,13 +4907,6 @@ loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
     big.js "^5.2.2"
     emojis-list "^2.0.0"
     json5 "^1.0.1"
-
-localforage@*, localforage@^1.7.2:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.7.3.tgz#0082b3ca9734679e1bd534995bdd3b24cf10f204"
-  integrity sha512-1TulyYfc4udS7ECSBT2vwJksWbkwwTX8BzeUIiq8Y07Riy7bDAAnxDaPU/tWyOVmQAcWJIEIFP9lPfBGqVoPgQ==
-  dependencies:
-    lie "3.1.1"
 
 locate-path@^2.0.0:
   version "2.0.0"
@@ -4987,8 +4963,8 @@ lodash.uniq@^4.5.0:
 
 lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3:
   version "4.17.15"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -8057,11 +8033,6 @@ url-parse@^1.4.3:
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
-
-url-polyfill@^1.1.3:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/url-polyfill/-/url-polyfill-1.1.7.tgz#402ee84360eb549bbeb585f4c7971e79a31de9e3"
-  integrity sha512-ZrAxYWCREjmMtL8gSbSiKKLZZticgihCvVBtrFbUVpyoETt8GQJeG2okMWA8XryDAaHMjJfhnc+rnhXRbI4DXA==
 
 url@^0.11.0:
   version "0.11.0"

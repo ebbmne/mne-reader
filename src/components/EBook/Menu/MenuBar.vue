@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-bar" :class="{'hide-box-shadow': showShadow || !showTitleAndMenuWrap}">
+  <div class="menu-bar" :class="{'hide-box-shadow': hideBoxShadow}">
     <div class="item">
       <span class="icon-menu"></span>
     </div>
@@ -10,25 +10,29 @@
       <span class="icon-bright"></span>
     </div>
     <div class="item">
-      <span class="icon-a" 
-        @click="showFontSizeSetting(3)">A</span>
+      <span class="icon-a" @click="showFontSizeCollection(3)">A</span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
-    ...mapState({
-      showShadow: state => state.settingIndex !== -1,
-      showTitleAndMenuWrap: state => state.showTitleAndMenuWrap
-    })
+    ...mapGetters([
+      "settingIndex", 
+      "showTitleAndMenuWrap"
+    ]),
+    hideBoxShadow() {
+      return (this.settingIndex !== -1) || (!this.showTitleAndMenuWrap);
+    }
   },
   methods: {
-    ...mapActions(["setSettingIndex"]),
-    showFontSizeSetting(index) {
+    ...mapMutations([
+      "setSettingIndex"
+    ]),
+    showFontSizeCollection(index) {
       this.setSettingIndex(index);
     }
   }
