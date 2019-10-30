@@ -1,4 +1,4 @@
-import { fontSizeCollection, fontFamilyCollection } from "@/config/font.js";
+import { fontSizeCollection, fontFamilyCollection } from "@/config/book.js";
 import localStorage from "@/utils/localStorage";
 
 const font = {

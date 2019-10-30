@@ -3,9 +3,14 @@
     <div class="setting-font-size">
       <div class="sign left" :style="minFontSize">A</div>
       <div class="center">
-        <div class="line-wrapper" v-for="(item, index) in fontSizeCollection" :key="index">
+        <div
+          class="line-wrapper"
+          v-for="(item, index) in fontSizeCollection"
+          :key="index"
+          @click="selectFontSize(index)"
+        >
           <div class="left"></div>
-          <div class="point-wrapper" @click="selectFontSize(index)">
+          <div class="point-wrapper">
             <div class="point" v-show="currentFontSizeIndex === index"></div>
           </div>
           <div class="right"></div>
@@ -40,7 +45,8 @@ export default {
     maxFontSize() {
       return {
         fontSize:
-          this.fontSizeCollection[this.fontSizeCollection.length - 1].fontSize + "px"
+          this.fontSizeCollection[this.fontSizeCollection.length - 1].fontSize +
+          "px"
       };
     },
     familyName() {
@@ -48,10 +54,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([
-      "setCurrentFontSizeIndex", 
-      "showFontFamilySelection"
-    ]),
+    ...mapMutations(["setCurrentFontSizeIndex", "showFontFamilySelection"]),
     selectFontSize(index) {
       this.setCurrentFontSizeIndex({
         book: this.book,
@@ -61,10 +64,7 @@ export default {
     selectFontFamily() {
       this.showFontFamilySelection(true);
     }
-  },
-  // mounted() {
-  //   console.log(this.currentFontFamilyIndex);
-  // }
+  }
 };
 </script>
 
@@ -73,28 +73,30 @@ export default {
 
 .setting-font {
   width: 100%;
-  height: px2rem(60);
+  height: px2rem(80);
   background: white;
   display: flex;
   flex-direction: column;
   .setting-font-size {
     width: 100%;
-    height: px2rem(40);
+    height: px2rem(60);
     position: relative;
     top: 0;
     left: 0;
     display: flex;
     box-shadow: px2rem(0) px2rem(-8) px2rem(8) #ccc;
+    @include center;
     .sign {
       width: px2rem(40);
       height: px2rem(40);
-      flex: 0 0 px2rem(40);
       line-height: px2rem(40);
       &.left {
         text-align: right;
+        height: px2rem(40);
       }
       &.right {
         text-align: left;
+        height: px2rem(40);
       }
     }
     .center {
@@ -145,7 +147,7 @@ export default {
   }
   .setting-font-family {
     width: 100%;
-    height: px2rem(20);
+    height: px2rem(40);
     font-size: px2rem(14);
     display: flex;
     justify-content: center;

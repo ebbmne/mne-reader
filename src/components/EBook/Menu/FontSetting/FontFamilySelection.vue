@@ -13,7 +13,7 @@
       @click="selectFontFamily(index)"
       :class="{'selected': index === currentFontFamilyIndex}"
     >
-      <div class="font-name">{{ item.font }}</div>
+      <div class="font-name">{{ item.fontName }}</div>
       <div class="icon">
         <span class="icon-check"></span>
       </div>
@@ -30,21 +30,16 @@ export default {
       "fontFamilyCollection",
       "currentFontFamilyIndex",
       "currentBookRendition"
-    ]),
+    ])
   },
   methods: {
-    ...mapMutations([
-      "showFontFamilySelection"
-    ]),
-    ...mapActions([
-      "setCurrentFontFamilyIndex"
-    ]),
+    ...mapMutations(["showFontFamilySelection"]),
+    ...mapActions(["setCurrentFontFamilyIndex"]),
     selectFontFamily(index) {
       this.setCurrentFontFamilyIndex(index);
-      const fontName = this.fontFamilyCollection[index].font;
+      const fontName = this.fontFamilyCollection[index].fontName;
       if (index !== 0) {
-        console.log(fontName);
-        this.currentBookRendition.themes.font("Days One");
+        this.currentBookRendition.themes.font(fontName);
       }
     },
     hideSelection() {

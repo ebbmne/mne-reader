@@ -7,7 +7,7 @@
       <span class="icon-progress"></span>
     </div>
     <div class="item">
-      <span class="icon-bright"></span>
+      <span class="icon-bright" @click="showFontSizeCollection(2)"></span>
     </div>
     <div class="item">
       <span class="icon-a" @click="showFontSizeCollection(3)">A</span>
@@ -33,7 +33,11 @@ export default {
       "setSettingIndex"
     ]),
     showFontSizeCollection(index) {
-      this.setSettingIndex(index);
+      if (this.settingIndex !== 3) {
+        this.setSettingIndex(index);
+      } else {
+        this.setSettingIndex(-1);
+      }
     }
   }
 };

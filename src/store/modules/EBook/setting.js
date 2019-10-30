@@ -13,7 +13,7 @@ const setting = {
     },
     toggleTitleAndMenuWrap(state) {
       state.showTitleAndMenuWrap = !state.showTitleAndMenuWrap;
-    },
+    }
   }
 }
 

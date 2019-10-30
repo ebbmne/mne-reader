@@ -1,5 +1,6 @@
 import font from "./font.js";
 import setting from "./setting.js";
+import theme from "./theme.js"
 
 const book = {
   state: {
@@ -30,8 +31,9 @@ const book = {
   },
   modules: {
     font,
-    setting
+    setting,
+    theme
   }
-}
+};
 
 export default book;

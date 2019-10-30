@@ -17,7 +17,8 @@ export default {
       "bookName",
       "showTitleAndMenuWrap",
       "fontFamilyCollection",
-      "showTitleAndMenuWrap"
+      "showTitleAndMenuWrap",
+      "themeCollection"
     ]),
   },
   methods: {
@@ -32,7 +33,8 @@ export default {
     ]),
     ...mapActions([
       "setCurrentFontSizeIndex",
-      "setCurrentFontFamilyIndex"
+      "setCurrentFontFamilyIndex",
+      "setCurrentThemeIndex"
     ]),
     initReader(url, bookName) {
       const book = new Epub(url);
@@ -43,7 +45,18 @@ export default {
       rendition.display().then(() => {
         this.setCurrentBook(book);
         this.setCurrentBookRendition(rendition);
-        this.initFont(bookName);
+        rendition.hooks.content.register(contents => {
+          this.fontFamilyCollection.forEach(item => {
+            if (item.src) {
+              const url = this.baseURL + item.src;
+              contents.addStylesheet(url);
+            }
+          })
+        });
+        this.themeCollection.forEach(item => {
+          rendition.themes.register(item.themeName, item.style);
+        });
+        this.initSetting(bookName);
         this.bindGesture(rendition);
       });
     },
@@ -111,24 +124,24 @@ export default {
         };
       };
     },
-    initFont(bookName) {
+    initSetting(bookName) {
       let info = localStorage.getObj(bookName);
       if (!info) {
         info = {};
         info["fontSizeIndex"] = 2;
         info["fontFamilyIndex"] = 0;
+        info["themeIndex"] = 1;
         localStorage.setObj(bookName, info);
       }
       this.setCurrentFontSizeIndex(info.fontSizeIndex);
       this.setCurrentFontFamilyIndex(info.fontFamilyIndex);
+      this.setCurrentThemeIndex(info.themeIndex);
     }
   },
   mounted() {
     const catagory = this.$route.params.catagory;
     const bookName = this.$route.params.bookName;
     const epubDownloadURL = this.baseURL + catagory + "/" + bookName + ".epub";
-
-    console.log(epubDownloadURL);
 
     this.setCatagory(catagory);
     this.setBookName(bookName);
