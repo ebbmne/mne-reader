@@ -1,7 +1,6 @@
 <template>
   <div class="theme-setting-wrapper">
-    <div
-      class="theme-setting-item"
+    <div class="theme-setting-item"
       v-for="(item, index) in themeCollection"
       :key="index"
       :class="{'selectTheme': currentThemeIndex === index}"
@@ -17,14 +16,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import bookMixin from "../../BookMixin.js";
 
 export default {
-  computed: {
-    ...mapGetters(["themeCollection", "currentThemeIndex"])
-  },
+  mixins: [bookMixin],
   methods: {
-    ...mapActions(["setCurrentThemeIndex"]),
     selectTheme(index) {
       this.setCurrentThemeIndex(index);
     }
@@ -32,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import "@/assets/styles/global.scss";
 
 .theme-setting-wrapper {
@@ -52,7 +48,7 @@ export default {
         width: 100%;
         height: 100%;
         box-sizing: border-box;
-        padding: 1%;
+        padding: px2rem(5);
         .theme-block-item {
           width: 100%;
           height: 100%;
@@ -70,7 +66,7 @@ export default {
         font-weight: bold;
       }
       .theme-block-item {
-        border: px2rem(1) solid #666;
+        border: px2rem(2) solid #666;
       }
     }
   }

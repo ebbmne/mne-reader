@@ -1,30 +1,37 @@
 <template>
-  <transition name="slide-bottom">
-    <div class="menu-wrapper">
-      <font-family-selection v-show="showFontFamilySelection" />
+  <div class="menu-wrapper">
+    <transition name="animation">
+      <location-setting v-if="settingIndex === 1"/>
+    </transition>
+    <transition name="animation">
       <theme-setting v-show="settingIndex === 2" />
+    </transition>
+    <transition name="animation">
+      <font-family-selection v-show="showFontFamilySelection" />
+    </transition>
+    <transition name="animation">
       <setting-font v-show="settingIndex === 3" />
-      <menu-bar />
-    </div>
-  </transition>
+    </transition>
+    <menu-bar />
+  </div>
 </template>
 
 <script>
+import bookMixin from "../BookMixin.js";
 import MenuBar from "./MenuBar.vue";
 import SettingFont from "./FontSetting/SettingFont.vue";
 import FontFamilySelection from "./FontSetting/FontFamilySelection.vue";
 import ThemeSetting from "./ThemeSetting/ThemeSetting.vue";
-import { mapGetters } from "vuex";
+import LocationSetting from "./LocationSetting/LocationSetting.vue";
 
 export default {
+  mixins: [bookMixin],
   components: {
     SettingFont,
     MenuBar,
     FontFamilySelection,
-    ThemeSetting
-  },
-  computed: {
-    ...mapGetters(["settingIndex", "showFontFamilySelection"]), 
+    ThemeSetting,
+    LocationSetting
   }
 };
 </script>

@@ -1,27 +1,24 @@
 <template>
-  <transition name="slide-top">
-    <div class="title-bar">
-      <div class="left">
-        <span class="icon-back"></span>
+  <div class="title-bar">
+    <div class="left">
+      <span class="icon-back"></span>
+    </div>
+    <div class="right">
+      <div class="item">
+        <span class="icon-shelf"></span>
       </div>
-      <div class="right">
-        <div class="item">
-          <span class="icon-shelf"></span>
-        </div>
-        <div class="item">
-          <span class="icon-cart"></span>
-        </div>
-        <div class="item">
-          <span class="icon-more"></span>
-        </div>
+      <div class="item">
+        <span class="icon-cart"></span>
+      </div>
+      <div class="item">
+        <span class="icon-more"></span>
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
-export default {
-};
+export default {};
 </script>
 
 <style lang='scss' scoped>

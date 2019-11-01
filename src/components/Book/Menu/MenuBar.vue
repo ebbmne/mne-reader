@@ -4,7 +4,7 @@
       <span class="icon-menu"></span>
     </div>
     <div class="item">
-      <span class="icon-progress"></span>
+      <span class="icon-progress" @click="showFontSizeCollection(1)"></span>
     </div>
     <div class="item">
       <span class="icon-bright" @click="showFontSizeCollection(2)"></span>
@@ -16,34 +16,28 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import bookMixin from "../BookMixin.js";
 
 export default {
+  mixins: [bookMixin],
   computed: {
-    ...mapGetters([
-      "settingIndex", 
-      "showTitleAndMenuWrap"
-    ]),
     hideBoxShadow() {
       return (this.settingIndex !== -1) || (!this.showTitleAndMenuWrap);
     }
   },
   methods: {
-    ...mapMutations([
-      "setSettingIndex"
-    ]),
     showFontSizeCollection(index) {
-      if (this.settingIndex !== 3) {
-        this.setSettingIndex(index);
-      } else {
+      if(this.settingIndex === index) {
         this.setSettingIndex(-1);
+      } else {
+        this.setSettingIndex(index);
       }
     }
   }
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import "@/assets/styles/global.scss";
 @import "@/assets/styles/animation.scss";
 

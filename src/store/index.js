@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { BASE_URL } from "@/config/network.js";
-import book from "./modules/EBook/book.js";
+import book from "./modules/Book/book.js";
 
 Vue.use(Vuex);
 

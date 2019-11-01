@@ -1,7 +1,7 @@
 import Vue from "vue";
+import router from "./router/index.js";
+import store from "./store/index.js";
 import App from "./App.vue";
-import router from "./router";
-import store from "./store";
 
 import "./assets/styles/iconfonts/icon.css";
 import "./assets/styles/global.scss";

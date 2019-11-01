@@ -28,25 +28,18 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import bookMixin from '../../BookMixin.js';
 
 export default {
+  mixins: [bookMixin],
   computed: {
-    ...mapGetters([
-      "book",
-      "fontSizeCollection",
-      "fontFamilyCollection",
-      "currentFontSizeIndex",
-      "currentFontFamilyIndex"
-    ]),
     minFontSize() {
       return { fontSize: this.fontSizeCollection[0].fontSize + "px" };
     },
     maxFontSize() {
       return {
         fontSize:
-          this.fontSizeCollection[this.fontSizeCollection.length - 1].fontSize +
-          "px"
+          this.fontSizeCollection[this.fontSizeCollection.length - 1].fontSize+"px"
       };
     },
     familyName() {
@@ -54,21 +47,17 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["setCurrentFontSizeIndex", "showFontFamilySelection"]),
     selectFontSize(index) {
-      this.setCurrentFontSizeIndex({
-        book: this.book,
-        index
-      });
+      this.setCurrentFontSizeIndex(index);
     },
     selectFontFamily() {
-      this.showFontFamilySelection(true);
+      this.setShowFontFamilySelection(true);
     }
   }
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import "@/assets/styles/global.scss";
 
 .setting-font {
@@ -84,24 +73,27 @@ export default {
     top: 0;
     left: 0;
     display: flex;
-    box-shadow: px2rem(0) px2rem(-8) px2rem(8) #ccc;
+    box-shadow: px2rem(0) px2rem(-8) px2rem(8) rgba(0,0,0,0.2);
     @include center;
     .sign {
       width: px2rem(40);
       height: px2rem(40);
       line-height: px2rem(40);
       &.left {
-        text-align: right;
-        height: px2rem(40);
+        @include center;
+        position: relative;
+        left: 3%;
       }
       &.right {
-        text-align: left;
-        height: px2rem(40);
+        @include center;
+        position: relative;
+        left: -3%;
       }
     }
     .center {
       flex: 1;
       display: flex;
+      height: px2rem(30);
       .line-wrapper {
         flex: 1;
         display: flex;

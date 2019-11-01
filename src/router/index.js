@@ -5,16 +5,20 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    redirect: "/ebook/:bookName"
+    path: "",
+    redirect: "/book/:bookName"
   },
   {
-    path: "/ebook",
-    component: () => import("@/views/EBook.vue"),
+    path: "/",
+    redirect: "/book/:bookName"
+  },
+  {
+    path: "/book",
+    component: () => import("@/views/Book.vue"),
     children: [
       {
         path: ":catagory/:bookName",
-        component: () => import("@/components/EBook/Reader.vue")
+        component: () => import("@/components/Book/Reader.vue")
       }
     ]
   }

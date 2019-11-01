@@ -1,5 +1,17 @@
 import { fontSizeCollection, fontFamilyCollection } from "@/config/book.js";
-import localStorage from "@/utils/localStorage";
+import localStorage from "@/utils/localStorage.js";
+
+function saveFontSizeIndexInLocalStorage(bookName, index) {
+  let obj = localStorage.getObj(bookName);
+  obj.fontSizeIndex = index;
+  localStorage.setObj(bookName, obj);
+}
+
+function saveFontFamilyIndexInLocalStorage(bookName, index) {
+  let obj = localStorage.getObj(bookName);
+  obj.fontFamilyIndex = index;
+  localStorage.setObj(bookName, obj);
+}
 
 const font = {
   state: {
@@ -14,7 +26,8 @@ const font = {
     fontFamilyCollection: state => state.fontFamilyCollection,
     currentFontSizeIndex: state => state.currentFontSizeIndex,
     currentFontFamilyIndex: state => state.currentFontFamilyIndex,
-    showFontFamilySelection: state => state.showFontFamilySelection
+    showFontFamilySelection: state => state.showFontFamilySelection,
+    currentFontSize: state => state.fontSizeCollection[state.currentFontSizeIndex]
   },
   mutations: {
     setCurrentFontSizeIndex(state, payload) {
@@ -24,39 +37,37 @@ const font = {
       state.currentFontSizeIndex = index;
       const fontSize = state.fontSizeCollection[index].fontSize + "px";
       book.currentBookRendition.themes.fontSize(fontSize);
-      
-      let obj = localStorage.getObj(book.bookName);
-      obj.fontSizeIndex = index;
-      localStorage.setObj(book.bookName, obj);
+
+      saveFontSizeIndexInLocalStorage(book.bookName, index);
     },
     setCurrentFontFamilyIndex(state, payload) {
       const index = payload.index;
       const book = payload.book;
 
       state.currentFontFamilyIndex = index;
+      const fontName = state.fontFamilyCollection[index].fontName;
+      book.currentBookRendition.themes.font(fontName);
 
-      let obj = localStorage.getObj(book.bookName);
-      obj.fontFamilyIndex = index;
-      localStorage.setObj(book.bookName, obj);
+      saveFontFamilyIndexInLocalStorage(book.bookName, index);
     },
-    showFontFamilySelection(state, flag) {
+    setShowFontFamilySelection(state, flag) {
       state.showFontFamilySelection = flag;
     }
   },
   actions: {
     setCurrentFontSizeIndex({ commit, rootState }, index) {
       commit("setCurrentFontSizeIndex", {
-        book: rootState.book, 
+        book: rootState.book,
         index
       });
     },
     setCurrentFontFamilyIndex({ commit, rootState }, index) {
       commit("setCurrentFontFamilyIndex", {
-        book: rootState.book, 
+        book: rootState.book,
         index
       });
     }
   }
-}
+};
 
 export default font;

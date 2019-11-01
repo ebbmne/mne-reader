@@ -6,8 +6,7 @@
       </div>
       <div class="comment">选择字体</div>
     </div>
-    <div
-      class="font-family-item"
+    <div class="font-family-item"
       v-for="(item, index) in fontFamilyCollection"
       :key="index"
       @click="selectFontFamily(index)"
@@ -22,19 +21,11 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import bookMixin from '../../BookMixin.js';
 
 export default {
-  computed: {
-    ...mapGetters([
-      "fontFamilyCollection",
-      "currentFontFamilyIndex",
-      "currentBookRendition"
-    ])
-  },
+  mixins: [bookMixin],
   methods: {
-    ...mapMutations(["showFontFamilySelection"]),
-    ...mapActions(["setCurrentFontFamilyIndex"]),
     selectFontFamily(index) {
       this.setCurrentFontFamilyIndex(index);
       const fontName = this.fontFamilyCollection[index].fontName;
@@ -43,13 +34,13 @@ export default {
       }
     },
     hideSelection() {
-      this.showFontFamilySelection(false);
+      this.setShowFontFamilySelection(false);
     }
   }
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import "@/assets/styles/global.scss";
 
 .font-family-selection-wrapper {

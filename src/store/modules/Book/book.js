@@ -1,17 +1,20 @@
 import font from "./font.js";
 import setting from "./setting.js";
-import theme from "./theme.js"
+import theme from "./theme.js";
+import location from "./location.js";
 
 const book = {
   state: {
     catagory: "",
     bookName: "",
     currentBook: null,
-    currentBookRendition: null
+    currentBookRendition: null,
+    available: false
   },
   getters: {
     catagory: state => state.catagory,
     bookName: state => state.bookName,
+    bookAvailable: state => state.available,
     currentBook: state => state.currentBook,
     currentBookRendition: state => state.currentBookRendition
   },
@@ -27,12 +30,16 @@ const book = {
     },
     setCurrentBookRendition(state, rendition) {
       state.currentBookRendition = rendition;
+    },
+    setBookAvailable(state, isAvailable) {
+      state.available = isAvailable;
     }
   },
   modules: {
     font,
     setting,
-    theme
+    theme,
+    location
   }
 };
 

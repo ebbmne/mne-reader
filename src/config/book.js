@@ -18,23 +18,23 @@ export const fontFamilyCollection = [
 
 export const themeCollection = [
   {
-    themeName: "Default",
+    themeName: "default",
     style: { body: { color: "#000", background: "#fff" } },
     alias: "默认"
   },
   {
-    themeName: "Eye",
+    themeName: "eye",
     style: { body: { color: "#fff", background: "#3CB371" } },
     alias: "护眼"
   },
   {
-    themeName: "Dusk",
-    style: { body: { color: "#fff", background: "#CD5C5C" } },
-    alias: "黄昏"
+    themeName: "tea",
+    style: { body: { color: "#fff", background: "#6B473C" } },
+    alias: "焦茶"
   },
   {
-    themeName: "Dark",
+    themeName: "dark",
     style: { body: { color: "#fff", background: "#000" } },
-    alias: "黑暗"
+    alias: "暗黑"
   }
 ];

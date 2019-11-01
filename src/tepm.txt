@@ -1,8 +1,8 @@
-rendition.hooks.content.register(contents => {
-  for (let item of this.fontFamilyCollection) {
-    if (item.src) {
-      const url = this.baseURL + item.src;
-      contents.addStylesheet(url);
-    }
-  }
-});
+i18n
+字体选择
+翻页定位
+配置文件获取
+css离线保存
+静态服务器路径设计
+兼容性问题
+加载中，请稍后
